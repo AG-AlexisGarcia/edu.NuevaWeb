@@ -1,0 +1,4 @@
+es\daw\app\AppAplication.class
+es\daw\app\controller\AlumnoController.class
+es\daw\app\repository\AlumnoRepository.class
+es\daw\app\model\Alumno.class

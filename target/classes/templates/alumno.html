@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Alumnos</title>
+</head>
+<body style="font-family: sans-serif; padding: 30px;">
+
+    <h2>Listado de Alumnos en la Base de Datos</h2>
+
+    <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 60%; margin-top: 15px;">
+        <thead>
+            <tr style="background-color: #f2f2f2;">
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- th:each itera sobre la lista que enviamos desde el controlador -->
+            <tr th:each="alumno : ${listaAlumnos}">
+                <td th:text="${alumno.id}">1</td>
+                <td th:text="${alumno.nombre}">Juan</td>
+                <td th:text="${alumno.email}">juan@example.com</td>
+            </tr>
+            <!-- Si no hay datos -->
+            <tr th:if="${#lists.isEmpty(listaAlumnos)}">
+                <td colspan="3" style="text-align: center;">No hay alumnos registrados en la base de datos.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <!-- Enlace para volver a la primera vista -->
+    <a th:href="@{/}">← Volver al inicio</a>
+
+</body>
+</html>
